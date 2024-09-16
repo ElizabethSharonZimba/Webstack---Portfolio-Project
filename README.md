@@ -39,7 +39,7 @@ Steps
 
     bash
 
-git clone https://github.com/your-username/hangman-game.git
+git clone  https://github.com/ElizabethSharonZimba/Webstack---Portfolio-Project.git
 cd hangman-game
 
 Install dependencies: In the project directory, run the following command:
