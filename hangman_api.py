@@ -1,3 +1,4 @@
+
 from flask import Flask, request, jsonify
 import random
 
@@ -12,6 +13,15 @@ words = ["apple", "banana", "grape", "orange", "peach"]
 # API Documentation Route
 @app.route('/api/v1/docs', methods=['GET'])
 def get_api_docs():
+    """Provide documentation for the Hangman API.
+
+    This endpoint returns a JSON object describing the available API endpoints,
+    their methods, request and response formats, and possible success and error codes.
+
+    Returns:
+        response (JSON): API documentation.
+        status_code (int): HTTP status code (200 OK).
+    """
     documentation = {
         "title": "Hangman API Documentation",
         "description": "This API allows users to play a simple game of Hangman.",
@@ -76,6 +86,17 @@ def get_api_docs():
 # Route to start a new game
 @app.route('/game/start', methods=['POST'])
 def start_game():
+    """Start a new game of Hangman.
+
+    This endpoint initializes a new game with a randomly selected word and
+    stores the game state in a mock database. It returns the initial game state,
+    including the masked word and the number of remaining tries.
+
+    Returns:
+        response (JSON): Initial game state including game_id, masked word,
+                          remaining tries, and current status.
+        status_code (int): HTTP status code (201 Created).
+    """
     data = request.get_json()
     difficulty = data.get('difficulty', 'easy')
 
@@ -102,6 +123,21 @@ def start_game():
 # Route to submit a letter guess
 @app.route('/game/<int:game_id>/guess', methods=['POST'])
 def make_guess(game_id):
+    """Submit a letter guess for the current game.
+
+    This endpoint processes a letter guess, updates the game state, and returns
+    the current game status, including the updated word status and remaining tries.
+    It handles both correct and incorrect guesses and checks if the game is won.
+
+    Args:
+        game_id (int): ID of the game.
+
+    Returns:
+        response (JSON): Current game status including current status, remaining
+                          tries, and a message indicating the result of the guess.
+        status_code (int): HTTP status code (200 OK) for valid input, (400 Bad Request)
+                           for invalid guesses, or (404 Not Found) if the game is not found.
+    """
     data = request.get_json()
     letter = data.get('letter').lower()
 
@@ -147,6 +183,20 @@ def make_guess(game_id):
 # Route to retrieve game status
 @app.route('/game/<int:game_id>', methods=['GET'])
 def get_game_status(game_id):
+    """Retrieve the current status of the game.
+
+    This endpoint returns the current state of the game, including the masked word,
+    remaining tries, and the original word.
+
+    Args:
+        game_id (int): ID of the game.
+
+    Returns:
+        response (JSON): Current game status including game_id, current status,
+                          remaining tries, and the word to guess.
+        status_code (int): HTTP status code (200 OK) if the game exists, or (404 Not Found)
+                           if the game is not found.
+    """
     if game_id not in games:
         return jsonify({"error": "Game not found"}), 404
 
@@ -162,6 +212,19 @@ def get_game_status(game_id):
 # Route to end the game
 @app.route('/game/<int:game_id>', methods=['DELETE'])
 def end_game(game_id):
+    """End the game and reveal the word.
+
+    This endpoint ends the game, deletes its state from the mock database, and returns
+    the word that was being guessed.
+
+    Args:
+        game_id (int): ID of the game.
+
+    Returns:
+        response (JSON): Message indicating the game has ended and the word that was being guessed.
+        status_code (int): HTTP status code (204 No Content) if the game is successfully ended,
+                           or (404 Not Found) if the game is not found.
+    """
     if game_id not in games:
         return jsonify({"error": "Game not found"}), 404
 

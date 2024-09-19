@@ -2,11 +2,26 @@ import random
 from colorama import Fore, Style
 
 def load_words():
-    """Load words from a text file."""
+    """Load words from a text file.
+
+    Reads a list of words from 'words.txt', converts them to uppercase,
+    and returns them as a list of strings.
+
+    Returns:
+        list: A list of words in uppercase from the file.
+    """
     with open('words.txt', 'r') as file:
         return [line.strip().upper() for line in file.readlines()]
 
 def display_hangman(tries):
+    """Return the current hangman stage based on the number of remaining tries.
+
+    Args:
+        tries (int): Number of tries left.
+
+    Returns:
+        str: The hangman drawing corresponding to the number of tries left.
+    """
     stages = [
         """
            ------
@@ -68,7 +83,11 @@ def display_hangman(tries):
     return stages[tries]
 
 def choose_difficulty():
-    """Choose difficulty level and return number of tries."""
+    """Prompt the user to choose a difficulty level and return the corresponding number of tries.
+
+    Returns:
+        int: Number of tries based on user choice (6 for Easy, 4 for Medium, 3 for Hard).
+    """
     print(Fore.CYAN + "Choose difficulty level:" + Style.RESET_ALL)
     print(Fore.CYAN + "1. Easy (10 tries)" + Style.RESET_ALL)
     print(Fore.CYAN + "2. Medium (7 tries)" + Style.RESET_ALL)
@@ -86,14 +105,26 @@ def choose_difficulty():
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 
 def add_word():
-    """Add a new word to the words file."""
+    """Prompt the user to enter a new word and add it to the 'words.txt' file.
+
+    The word is converted to uppercase before being added.
+    """
     new_word = input("Enter a new word to add: ").strip().upper()
     with open('words.txt', 'a') as file:
         file.write(new_word + '\n')
     print(Fore.GREEN + f"{new_word} has been added to the word list." + Style.RESET_ALL)
 
 def fill_in_char(original_word, answer_word, char):
-    """Fill in a missing character in the answer word based on the original word."""
+    """Fill in the missing characters in the answer word based on the guessed character.
+
+    Args:
+        original_word (str): The word to guess.
+        answer_word (str): The current state of the guessed word.
+        char (str): The character to fill in.
+
+    Returns:
+        str: Updated answer word with the guessed character filled in.
+    """
     origi = list(original_word)
     answ = list(answer_word)
 
@@ -104,6 +135,15 @@ def fill_in_char(original_word, answer_word, char):
     return ''.join(answ)
 
 def play():
+    """Main function to play the Hangman game.
+
+    - Loads words from the file.
+    - Selects a random word for the game.
+    - Prompts the user to guess letters.
+    - Displays the current state of the hangman and word.
+    - Manages the number of tries and guessed letters.
+    - Ends the game when the word is guessed or tries run out.
+    """
     print(Fore.CYAN + "Let's play Hangman!" + Style.RESET_ALL)
     
     words = load_words()
