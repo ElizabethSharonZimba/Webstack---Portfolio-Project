@@ -60,7 +60,7 @@ Base URL
 
 For the API:
 execute 
-##flask run in 
+##flask run 
 
 1. Start a New Game
 
