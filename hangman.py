@@ -8,7 +8,62 @@ def load_words():
 
 def display_hangman(tries):
     stages = [
-        # Hangman stages...
+        """
+           ------
+           |    |
+           |    O
+           |   /|\\
+           |   / \\
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|\\
+           |   /
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |   /|
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |    |
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |    O
+           |
+           |
+           |
+        """,
+        """
+           ------
+           |    |
+           |
+           |
+           |
+           |
+        """,
+        """
+           ------
+           |
+           |
+           |
+           |
+           |
+        """,
     ]
     return stages[tries]
 
@@ -22,11 +77,11 @@ def choose_difficulty():
     while True:
         choice = input("Enter 1, 2, or 3: ")
         if choice == '1':
-            return 10
+            return 6
         elif choice == '2':
-            return 7
+            return 4
         elif choice == '3':
-            return 5
+            return 3
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 

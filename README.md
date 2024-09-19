@@ -57,7 +57,8 @@ python hangman.py
 To run the unit tests, navigate to the project directory and execute:
 
 ```bash
-python -m unittest test_base.py
+python -m unittest test_hangman.py
+
 ```
 
 ## How to Play
