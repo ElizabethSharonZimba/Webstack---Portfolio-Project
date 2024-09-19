@@ -1,4 +1,4 @@
-Here's a sample `README.md` file for your Hangman project. This file provides an overview of the project, how to run it, and details about its features.
+project overview 
 
 ### `README.md`
 
