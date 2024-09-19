@@ -59,6 +59,78 @@ The Hangman API provides RESTful endpoints to interact with a Hangman game progr
 Base URL
 
 For the API:
+execute 
+##flask run in 
+
+1. Start a New Game
+
+To begin a new game, send a POST request to the /game/start endpoint. You need to specify the difficulty level in the request body.
+Request:
+
+    Method: POST
+    URL: http://127.0.0.1:5000/api/v1/game/start
+    Body (JSON):
+
+    json
+
+    {
+      "difficulty": "easy"
+    }
+
+    You can choose between "easy", "medium", and "hard".
+
+Response:
+
+    game_id: Unique identifier for the game session.
+    word_template: The hidden word with underscores for each unrevealed letter.
+    attempts_left: Number of wrong guesses remaining.
+
+2. Make a Guess
+
+To guess a letter, send a POST request to the /game/<game_id>/guess endpoint. Replace <game_id> with the ID you received when starting the game.
+Request:
+
+    Method: POST
+    URL: http://127.0.0.1:5000/api/v1/game/<game_id>/guess
+    Body (JSON):
+
+    json
+
+    {
+      "letter": "a"
+    }
+
+Response:
+
+    word_template: The updated word showing correctly guessed letters.
+    attempts_left: Remaining wrong guesses.
+    message: Feedback on the guess (e.g., "Good guess!" or "Incorrect guess").
+
+3. Check Game Status
+
+At any time, you can check the current status of the game by sending a GET request to the /game/<game_id> endpoint.
+Request:
+
+    Method: GET
+    URL: http://127.0.0.1:5000/api/v1/game/<game_id>
+
+Response:
+
+    word_template: Current state of the word.
+    attempts_left: Remaining wrong guesses.
+    status: Indicates if the game is still "in-progress" or has "won" or "lost."
+
+4. End the Game
+
+If you want to stop the game early, you can send a DELETE request to the /game/<game_id> endpoint.
+Request:
+
+    Method: DELETE
+    URL: http://127.0.0.1:5000/api/v1/game/<game_id>
+
+Response:
+
+    message: Confirmation that the game has ended successfully.
 
 bash
 http://127.0.0.1:5000/api/v1/docs
