@@ -115,12 +115,12 @@ def play():
 
     while not guessed and tries > 0:
         print(display_hangman(tries))
-        print(Fore.YELLOW + word_completion + Style.RESET_ALL)  # Display word completion
+        print(Fore.YELLOW + word_completion + Style.RESET_ALL)  
         print(f"Guessed letters: {', '.join(guessed_letters)}")
         
         guess = input("Please guess a letter: ").upper()
 
-        if len(guess) == 1 and guess.isalpha():  # Single letter guess
+        if len(guess) == 1 and guess.isalpha(): 
             if guess in guessed_letters:
                 print(Fore.RED + "You already guessed that letter." + Style.RESET_ALL)
             elif guess not in word:
