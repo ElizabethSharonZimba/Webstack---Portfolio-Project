@@ -59,8 +59,70 @@ The Hangman API provides RESTful endpoints to interact with a Hangman game progr
 Base URL
 
 For the API:
-execute 
-##flask run 
+we will be using the cURL commands
+
+cURL
+
+Start a New Game:
+
+bash(on a terminal use the following cURL comands to pay the game)
+
+curl -X POST http://localhost:5000/game/start -H "Content-Type: application/json" -d '{"difficulty": "easy"}'
+
+Make a Guess:
+
+bash
+
+curl -X POST http://localhost:5000/game/<game_id>/guess -H "Content-Type: application/json" -d '{"letter": "a"}'
+
+Replace <game_id> with the actual game ID from the response of the start game request.
+
+Check Game Status:
+
+bash
+
+curl -X GET http://localhost:5000/game/<game_id>
+
+Replace <game_id> with the actual game ID.
+
+End the Game:
+
+bash
+
+curl -X DELETE http://localhost:5000/game/<game_id>
+
+Replace <game_id> with the actual game ID.
+HTTPie
+
+Start a New Game:
+
+bash
+
+http POST http://localhost:5000/game/start difficulty=easy
+
+Make a Guess:
+
+bash
+
+http POST http://localhost:5000/game/<game_id>/guess letter=a
+
+Replace <game_id> with the actual game ID.
+
+Check Game Status:
+
+bash
+
+http GET http://localhost:5000/game/<game_id>
+
+Replace <game_id> with the actual game ID.
+
+End the Game:
+
+bash
+
+http DELETE http://localhost:5000/game/<game_id>
+
+Replace <game_id> with the actual game ID.
 
 1. Start a New Game
 
