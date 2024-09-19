@@ -22,7 +22,7 @@ hangman/
 │
 ├── hangman.py            # Main game code
 ├── words.txt             # Text file containing everyday words
-└── test_base.py          # Test file for unit testing
+└── test_hangman.py          # Test file for unit testing
 ```
 
 ## Requirements
@@ -34,7 +34,7 @@ hangman/
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ElizabethSharonZimba/Webstack---Portfolio-Project.git
    cd hangman
    ```
 
@@ -71,19 +71,12 @@ python -m unittest test_base.py
 7. After the game, you can add new words to the list.
 
 ## Contributing
-
+Elizabeth Sharon Zimba - Back-end and game logic
 Feel free to submit issues or pull requests. Contributions are welcome!
 
-## License
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-This project is licensed under the MIT License.
-```
-
-### Usage
-
-1. **Create a file named `README.md`** in the `hangman` directory.
-2. **Copy and paste the text above** into the `README.md` file.
-
-### Conclusion
-
-This README provides essential information about your project, making it easier for others (or yourself in the future) to understand and use it. If you need further modifications or additional sections, just let me know!
+Acknowledgements
+The classic game of Hangman, which inspired this project.
+ALX for providing the learning platform for this project.
