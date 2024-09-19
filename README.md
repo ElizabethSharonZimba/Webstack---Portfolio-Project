@@ -61,8 +61,9 @@ Base URL
 For the API:
 
 bash
+http://127.0.0.1:5000/api/v1/docs
 
-http://localhost:5000/api/v1
+
 
 Endpoints
 1. Start a New Game
