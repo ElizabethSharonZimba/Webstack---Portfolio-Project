@@ -1,59 +1,89 @@
-Project Overview
-The Hangman game is a classic word-guessing game where the player guesses a hidden word by suggesting letters within a certain number of guesses. This project is a web-based implementation of the Hangman game, built with HTML, CSS, and JavaScript for both the front-end and back-end logic.
+Here's a sample `README.md` file for your Hangman project. This file provides an overview of the project, how to run it, and details about its features.
 
-Features
-Guess letters to uncover a randomly chosen word.
-Track remaining guesses and letters already guessed.
-Win by guessing all letters or lose if guesses run out.
-Reset the game and start with a new word anytime.
-Responsive design for optimal user experience across devices.
-Technologies Used
-Front-end & Back-end:
+### `README.md`
 
-HTML: Structure of the web page.
-CSS: Styling and layout.
-JavaScript: Handles both game logic and user interaction.
-Development Tools
-Git: Version control.
-Visual Studio Code: Code editor.
-Browser Console: For testing and debugging the game.
-Setup and Installation
-Prerequisites
-A browser to run the game.
-Steps
-Clone the repository:
+```markdown
+# Hangman Game
 
-bash
-Copy code
-git clone https://github.com/ElizabethSharonZimba/Webstack---Portfolio-Project.git
-cd hangman-game
-Open the index.html file in your browser to start the game.
+A simple console-based Hangman game implemented in Python. Players can guess letters to reveal a hidden word, while trying to avoid running out of attempts. This project demonstrates basic programming concepts including loops, conditionals, and file handling.
 
-Usage
-Start the Game: When the page loads, a random word is selected, represented by underscores.
-Make a Guess: Type a letter and press "Guess." The game will reveal any correct guesses or reduce the remaining guesses if incorrect.
-Win or Lose: You win by guessing all letters before running out of guesses, or you lose if all guesses are used up.
-Reset the Game: Click "Reset Game" to start a new round with a new word.
-Game Logic
-Word Selection: A random word is chosen from a predefined list when the game starts.
-Guesses: Players have 6 incorrect guesses before they lose the game.
-Letter Validation: The game checks if a guessed letter is in the word and updates the display accordingly.
-Game End: The game ends when:
-All letters are correctly guessed (win).
-The player runs out of guesses (loss).
-Future Improvements
-Word Difficulty Levels: Add easy, medium, and hard words based on length or complexity.
-Multiplayer Mode: Allow two players to take turns guessing letters.
-Themes: Add themes such as animals, countries, or movies.
-Score Tracking: Implement a database to save high scores or player stats.
-Contributors
-Elizabeth Sharon Zimba - Back-end and game logic.
-Elizabeth Sharon Zimba - Front-end and design.
-If you'd like to contribute, feel free to open a pull request or submit an issue.
+## Features
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+- **Core Gameplay:** Players guess letters to uncover a hidden word.
+- **Dynamic Word Selection:** Words are loaded from an external text file (`words.txt`).
+- **Difficulty Levels:** Choose between easy, medium, and hard difficulty levels, affecting the number of allowed incorrect guesses.
+- **Add New Words:** Players can add new words to the word list during gameplay.
+- **Unit Testing:** Includes a test suite to verify the functionality of the game components.
 
-Acknowledgements
-The classic game of Hangman, which inspired this project.
-ALX for providing the learning platform for this project.
+## Project Structure
+
+```
+hangman/
+│
+├── hangman.py            # Main game code
+├── words.txt             # Text file containing everyday words
+└── test_base.py          # Test file for unit testing
+```
+
+## Requirements
+
+- Python 3.x
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd hangman
+   ```
+
+2. Ensure you have Python installed:
+
+   ```bash
+   python --version
+   ```
+
+## Running the Game
+
+To run the game, navigate to the project directory and execute:
+
+```bash
+python hangman.py
+```
+
+## Running Tests
+
+To run the unit tests, navigate to the project directory and execute:
+
+```bash
+python -m unittest test_base.py
+```
+
+## How to Play
+
+1. Start the game by running `hangman.py`.
+2. Choose a difficulty level (1, 2, or 3).
+3. Guess letters to try to uncover the hidden word.
+4. If you guess a letter correctly, it will be revealed in the word.
+5. If you guess incorrectly, you lose a try.
+6. The game ends when you either guess the word or run out of tries.
+7. After the game, you can add new words to the list.
+
+## Contributing
+
+Feel free to submit issues or pull requests. Contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+### Usage
+
+1. **Create a file named `README.md`** in the `hangman` directory.
+2. **Copy and paste the text above** into the `README.md` file.
+
+### Conclusion
+
+This README provides essential information about your project, making it easier for others (or yourself in the future) to understand and use it. If you need further modifications or additional sections, just let me know!
