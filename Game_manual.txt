@@ -1,0 +1,52 @@
+Before anything when playing the api game 
+Ensure that the server hosting API(hangman_api.py) is running before sending API request using POSTman(you can either use the terminal or http)
+Then choose the difficulty level of the game
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Console Game Commands
+
+    Clone the Repository:
+    bash
+
+git clone https://github.com/ElizabethSharonZimba/Webstack---Portfolio-Project.git
+cd Webstack---Portfolio-Project
+
+Check Python Installation:
+bash
+
+python --version
+
+Install Dependencies:
+bash
+
+pip install -r requirements.txt
+
+Run the Console Game:
+bash
+
+    python hangman.py
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Hangman API Commands
+
+    Start a New Game:
+    bash
+
+curl -X POST http://localhost:5000/game/start -H "Content-Type: application/json" -d '{"difficulty": "easy"}'
+
+Make a Guess:
+Replace <game_id> with the actual game ID received from starting a new game.
+bash
+
+curl -X POST http://localhost:5000/game/<game_id>/guess -H "Content-Type: application/json" -d '{"letter": "a"}'
+
+Check Game Status:
+Replace <game_id> with the actual game ID.
+bash
+
+curl -X GET http://localhost:5000/game/<game_id>
+
+End the Game:
+Replace <game_id> with the actual game ID.
+bash
+
+curl -X DELETE http://localhost:5000/game/<game_id>
