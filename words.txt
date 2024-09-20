@@ -38,4 +38,10 @@ cake
 brownie
 icecream
 candy
-chocolate
+chocolateROMANCE
+TOY
+DOG
+ROOT
+cat
+ball
+bread
