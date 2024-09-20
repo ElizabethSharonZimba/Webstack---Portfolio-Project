@@ -4,12 +4,6 @@ Then choose the difficulty level of the game
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 Console Game Commands
 
-    Clone the Repository:
-    bash
-
-git clone https://github.com/ElizabethSharonZimba/Webstack---Portfolio-Project.git
-cd Webstack---Portfolio-Project
-
 Check Python Installation:
 bash
 
