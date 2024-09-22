@@ -44,3 +44,23 @@ Replace <game_id> with the actual game ID.
 bash
 
 curl -X DELETE http://localhost:5000/game/<game_id>
+
+Start game:
+bash
+
+curl -X POST http://localhost:5000/game/start -H "Content-Type: application/json" -d '{"difficulty": "easy"}'
+
+Make a guess:
+bash
+
+curl -X POST http://localhost:5000/game/1/guess -H "Content-Type: application/json" -d '{"letter": "a"}'
+
+Check game status:
+bash
+
+curl -X GET http://localhost:5000/game/1
+
+End the game:
+bash
+
+curl -X DELETE http://localhost:5000/game/1
