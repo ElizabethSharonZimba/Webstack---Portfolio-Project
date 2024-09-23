@@ -92,7 +92,6 @@ def choose_difficulty():
     print(Fore.CYAN + "1. Easy (10 tries)" + Style.RESET_ALL)
     print(Fore.CYAN + "2. Medium (7 tries)" + Style.RESET_ALL)
     print(Fore.CYAN + "3. Hard (5 tries)" + Style.RESET_ALL)
-    
     while True:
         choice = input("Enter 1, 2, or 3: ")
         if choice == '1':

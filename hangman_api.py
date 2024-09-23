@@ -1,6 +1,7 @@
 
 from flask import Flask, request, jsonify
 import random
+from hangman import load_words
 
 app = Flask(__name__)
 
@@ -83,12 +84,12 @@ def start_game():
     difficulty = data.get('difficulty', 'easy')
 
     # Choose a word based on difficulty (for now, just random)
-    word = random.choice(words)
+    word = random.choice(load_words())
 
     # Create a game_id and store the game state
     game_id = len(games) + 1
     games[game_id] = {
-        'word': word,
+        'word': word.lower(),
         'remaining_tries': 6,  # Can vary based on difficulty
         'current_status': '_' * len(word),
         'guessed_letters': []
