@@ -32,7 +32,7 @@ class TestHangmanGame(unittest.TestCase):
             mock_input (MagicMock): Mock object for the 'input' function.
         """
         tries = choose_difficulty()
-        self.assertEqual(tries, 10)
+        self.assertEqual(tries, 6)
 
     @patch("builtins.input", side_effect=['2'])
     def test_choose_difficulty_medium(self, mock_input):
@@ -46,7 +46,7 @@ class TestHangmanGame(unittest.TestCase):
             mock_input (MagicMock): Mock object for the 'input' function.
         """
         tries = choose_difficulty()
-        self.assertEqual(tries, 7)
+        self.assertEqual(tries, 4)
 
     @patch("builtins.input", side_effect=['3'])
     def test_choose_difficulty_hard(self, mock_input):
@@ -60,7 +60,7 @@ class TestHangmanGame(unittest.TestCase):
             mock_input (MagicMock): Mock object for the 'input' function.
         """
         tries = choose_difficulty()
-        self.assertEqual(tries, 5)
+        self.assertEqual(tries, 3)
 
     @patch("builtins.input", side_effect=['4', '2'])  # Invalid input followed by valid
     def test_choose_difficulty_invalid_then_valid(self, mock_input):
@@ -75,7 +75,7 @@ class TestHangmanGame(unittest.TestCase):
             mock_input (MagicMock): Mock object for the 'input' function.
         """
         tries = choose_difficulty()
-        self.assertEqual(tries, 7)
+        self.assertEqual(tries, 4)
 
     def test_fill_in_char_single_char(self):
         """Test filling in a single character.
